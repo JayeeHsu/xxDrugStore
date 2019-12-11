@@ -28,47 +28,15 @@ public class  UserController {
 
     //UmsMember↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     //增加用户
-    @RequestMapping("addUser")
-    @ResponseBody
-
-    public int addUser(String memberLevelId,
-                       String username,
-                       String password,
-                       String nickname,
-                       String phone,
-                       int status,
-                       Date createTime,
-                       String icon,
-                       int gender,
-                       Date birthday,
-                       String city,
-                       String job,
-                       String personalizedSignature,
-                       int source_type,
-                       int integration,
-                       int growth,
-                       int luckeyCount,
-                       int historyIntegration) {
-        int result = userService.addUser(memberLevelId,
-                username,
-                password,
-                nickname,
-                phone,
-                status,
-                createTime,
-                icon,
-                gender,
-                birthday,
-                city,
-                job,
-                personalizedSignature,
-                source_type,
-                integration,
-                growth,
-                luckeyCount,
-                historyIntegration);
-        return result;
-    }
+//    @RequestMapping("addUser")
+//    @ResponseBody
+//
+//   public int addUser(//UmsMember umsMember
+//
+//     ) {
+//        //int result = userService.addUser(umsMember);
+//        //return result;
+//    }
     //通过主键id删除用户
     @RequestMapping("deleteUser")
     @ResponseBody
@@ -85,7 +53,7 @@ public class  UserController {
                           String password,
                           String nickname,
                           String phone,
-                          int status,
+                          String status,
                           Date createTime,
                           String icon,
                           int gender,

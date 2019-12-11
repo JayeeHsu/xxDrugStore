@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoxiang.xxdrugstore.manage.mapper.PmsSkuInfoMapper">
+
+    <select id="selectSkuSaleAttrValueListBySpu" resultMap="selectSkuSaleAttrValueListBySpuMap">
+        SELECT
+            si.product_id,si.catalog3_id,si.price,si.sku_default_img,si.sku_desc,si.sku_name,si.tm_id,
+            ssav.sale_attr_value_name,ssav.sale_attr_id,ssav.sale_attr_name,ssav.sale_attr_value_id,ssav.sku_id,
+            si.id as si_id ,
+            ssav.id as ssav_id
+        FROM
+            pms_sku_info si,
+            pms_sku_sale_attr_value ssav
+        WHERE
+            si.product_id = #{productId}
+        AND si.id = ssav.sku_id
+    </select>
+
+    <resultMap id="selectSkuSaleAttrValueListBySpuMap" type="com.xiaoxiang.xxdrugstore.bean.PmsSkuInfo" autoMapping="true">
+        <result column="si_id" property="id"></result>
+        <result column="product_id" property="productId"></result>
+        <result column="catalog3_id" property="catalog3Id"></result>
+        <result column="price" property="price"></result>
+        <result column="sku_default_img" property="skuDefaultImg"></result>
+        <result column="sku_name" property="skuName"></result>
+        <result column="tm_id" property="tmId"></result>
+        <collection property="skuSaleAttrValueList" ofType="com.xiaoxiang.xxdrugstore.bean.PmsSkuSaleAttrValue" autoMapping="true">
+            <result column="ssav_id" property="id"></result>
+            <result column="sale_attr_value_name" property="saleAttrValueName"></result>
+            <result column="sale_attr_id" property="saleAttrId"></result>
+            <result column="sale_attr_name" property="saleAttrName"></result>
+            <result column="sale_attr_value_id" property="saleAttrValueId"></result>
+            <result column="sku_id" property="skuId"></result>
+        </collection>
+    </resultMap>
+
+</mapper>

@@ -13,7 +13,7 @@ public class UmsMember implements Serializable {
     private String         password;
     private String nickname;
     private String         phone;
-    private int status;
+    private String status;
     private Date createTime;
     private String icon;
     private int         gender;
@@ -26,6 +26,9 @@ public class UmsMember implements Serializable {
     private int growth;
     private int         luckeyCount;
     private int historyIntegration;
+
+
+
 
     public String getId() {
         return id;
@@ -75,11 +78,11 @@ public class UmsMember implements Serializable {
         this.phone = phone;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -178,6 +181,4 @@ public class UmsMember implements Serializable {
     public void setHistoryIntegration(int historyIntegration) {
         this.historyIntegration = historyIntegration;
     }
-
-
 }

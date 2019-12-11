@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoxiang.xxdrugstore.manage.mapper.PmsBaseAttrInfoMapper">
+
+    <select id="selectAttrValueListByValueId"  resultMap="selectAttrValueListByValueIdMap">
+        SELECT
+          ba.attr_name, ba.catalog3_id, ba.is_enabled,
+          ba.id as ba_id,
+          bv.value_name, bv.is_enabled,bv.attr_id,
+          bv.id as bv_id
+        FROM
+            pms_base_attr_info ba,
+            pms_base_attr_value bv
+        WHERE
+            ba.id = bv.attr_id
+        and
+          bv.id in (${valueIdStr})
+    </select>
+
+    <resultMap id="selectAttrValueListByValueIdMap" type="com.xiaoxiang.xxdrugstore.bean.PmsBaseAttrInfo" autoMapping="true">
+            <result column="ba_id" property="baId"></result>
+        <result column="attr_name" property="attrName"></result>
+        <result column="catalog3_id" property="catalog3Id"></result>
+        <result column="is_enabled" property="isEnabled"></result>
+        <collection property="attrValueList" ofType="com.xiaoxiang.xxdrugstore.bean.PmsBaseAttrValue" autoMapping="true">
+            <result column="bv_id" property="bvId"></result>
+            <result column="value_name" property="valueName"></result>
+            <result column="is_enabled" property="isEnabled"></result>
+            <result column="attr_id" property="attrId"></result>
+        </collection>
+    </resultMap>
+
+</mapper>

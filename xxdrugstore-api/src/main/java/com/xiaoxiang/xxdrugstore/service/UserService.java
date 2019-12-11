@@ -18,12 +18,13 @@ public interface UserService {
 
     int updateReceiveAddress(String id, String memberId, String name, String phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress);
 
-    int addUser(String memberLevelId,
+    int addUser(//UmsMember umsMember
+                String memberLevelId,
                 String username,
                 String password,
                 String nickname,
                 String phone,
-                int status,
+                String status,
                 Date createTime,
                 String icon,
                 int gender,
@@ -35,11 +36,13 @@ public interface UserService {
                 int integration,
                 int growth,
                 int luckeyCount,
-                int historyIntegration);
+                int historyIntegration );
 
     int deleteUserById(String id);
 
-    int updateUser(String id, String memberLevelId, String username, String password, String nickname, String phone, int status, Date createTime, String icon, int gender, Date birthday, String city, String job, String personalizedSignature, int source_type, int integration, int growth, int luckeyCount, int historyIntegration);
+    int updateUser(//UmsMember umsMember
+            String id, String memberLevelId, String username, String password, String nickname, String phone, String status, Date createTime, String icon, int gender, Date birthday, String city, String job, String personalizedSignature, int source_type, int integration, int growth, int luckeyCount, int historyIntegration
+    );
 
     UmsMember getUserByUserName(String userName);
 }

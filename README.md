@@ -1,3 +1,10 @@
 # xxDrugStore 本地修改版本
 
-xxdrugstore-user用户服务8080
+xxdrugstore-user-service用户服务的service层8070
+xxdrugstore-user-web用户服务的web层8080
+
+xxdrugstore-manage-service用户服务的service层8071
+xxdrugstore-manage-web用户服务的web层8081
+
+#xxdrugstore-item-service前台的商品详细展示8072
+xxdrugstore-item-web前台的商品详情展示8082
