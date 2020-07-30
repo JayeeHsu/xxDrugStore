@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="xxdrugstore@localhost" uuid="a4c76e15-12d9-43b4-a7a6-5d143ee492c6">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/xxdrugstore</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="gmall@localhost" uuid="7af7d868-9864-49f4-a6ae-ea361b2fd729">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/gmall</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="xiaoxiangdrugstore@localhost" uuid="4018eed7-35ca-44b0-86a0-5f7664db3ed6">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/xiaoxiangdrugstore</jdbc-url>
+    </data-source>
+  </component>
+</project>

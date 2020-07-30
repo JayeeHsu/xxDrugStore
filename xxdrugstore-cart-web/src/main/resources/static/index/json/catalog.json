@@ -1,0 +1,171 @@
+{
+  "1": [
+    {
+      "catalog1Id": "1",
+      "catalog3List": [
+        {
+          "catalog2Id": "1",
+          "id": "1",
+          "name": "胃炎"
+        },
+        {
+          "catalog2Id": "1",
+          "id": "2",
+          "name": "胃溃疡"
+        },
+        {
+          "catalog2Id": "1",
+          "id": "3",
+          "name": "急性肠炎"
+        }
+      ],
+      "id": "1",
+      "name": "肠胃用药"
+    },
+    {
+      "catalog1Id": "1",
+      "catalog3List": [
+        {
+          "catalog2Id": "2",
+          "id": "13",
+          "name": "支气管炎"
+        },
+        {
+          "catalog2Id": "2",
+          "id": "14",
+          "name": "肺热咳嗽"
+        },
+        {
+          "catalog2Id": "2",
+          "id": "15",
+          "name": "哮喘"
+        }
+      ],
+      "id": "2",
+      "name": "呼吸系统"
+    },
+    {
+      "catalog1Id": "1",
+      "catalog3List": [
+        {
+          "catalog2Id": "3",
+          "id": "16",
+          "name": "高血压"
+        },
+        {
+          "catalog2Id": "3",
+          "id": "17",
+          "name": "糖尿病"
+        },
+        {
+          "catalog2Id": "3",
+          "id": "18",
+          "name": "冠心病"
+        }
+      ],
+      "id": "3",
+      "name": "心脑血管"
+    },
+    {
+      "catalog1Id": "1",
+      "catalog3List": [
+        {
+          "catalog2Id": "4",
+          "id": "19",
+          "name": "风湿病"
+        },
+        {
+          "catalog2Id": "4",
+          "id": "20",
+          "name": "跌打损伤"
+        },
+        {
+          "catalog2Id": "4",
+          "id": "21",
+          "name": "关节炎"
+        }
+      ],
+      "id": "4",
+      "name": "风湿骨科"
+    },
+    {
+      "catalog1Id": "1",
+      "catalog3List": [
+        {
+          "catalog2Id": "5",
+          "id": "22",
+          "name": "白血病"
+        },
+        {
+          "catalog2Id": "5",
+          "id": "23",
+          "name": "肺癌"
+        },
+        {
+          "catalog2Id": "5",
+          "id": "24",
+          "name": "胃癌"
+        }
+      ],
+      "id": "5",
+      "name": "抗肿瘤病"
+    },
+    {
+      "catalog1Id": "1",
+      "catalog3List": [
+        {
+          "catalog2Id": "6",
+          "id": "25",
+          "name": "皮炎"
+        },
+        {
+          "catalog2Id": "6",
+          "id": "26",
+          "name": "湿疹"
+        }
+      ],
+      "id": "6",
+      "name": "皮肤科药"
+    },
+    {
+      "catalog1Id": "1",
+      "catalog3List": [
+        {
+          "catalog2Id": "7",
+          "id": "27",
+          "name": "眼科"
+        },
+        {
+          "catalog2Id": "7",
+          "id": "28",
+          "name": "鼻科"
+        },
+        {
+          "catalog2Id": "7",
+          "id": "29",
+          "name": "耳科"
+        }
+      ],
+      "id": "7",
+      "name": "五官科药"
+    }
+  ],
+
+
+
+  "2": [
+    {
+      "catalog1Id": "2",
+      "catalog3List": [
+        {
+          "catalog2Id": "9",
+          "id": "10",
+          "name": "胃溃疡"
+        }
+      ],
+      "id": "9",
+      "name": ""
+    }
+  ]
+}
+

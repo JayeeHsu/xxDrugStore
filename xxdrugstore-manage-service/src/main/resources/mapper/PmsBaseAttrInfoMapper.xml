@@ -20,12 +20,12 @@
     </select>
 
     <resultMap id="selectAttrValueListByValueIdMap" type="com.xiaoxiang.xxdrugstore.bean.PmsBaseAttrInfo" autoMapping="true">
-            <result column="ba_id" property="baId"></result>
+            <result column="ba_id" property="id"></result>
         <result column="attr_name" property="attrName"></result>
         <result column="catalog3_id" property="catalog3Id"></result>
         <result column="is_enabled" property="isEnabled"></result>
         <collection property="attrValueList" ofType="com.xiaoxiang.xxdrugstore.bean.PmsBaseAttrValue" autoMapping="true">
-            <result column="bv_id" property="bvId"></result>
+            <result column="bv_id" property="id"></result>
             <result column="value_name" property="valueName"></result>
             <result column="is_enabled" property="isEnabled"></result>
             <result column="attr_id" property="attrId"></result>

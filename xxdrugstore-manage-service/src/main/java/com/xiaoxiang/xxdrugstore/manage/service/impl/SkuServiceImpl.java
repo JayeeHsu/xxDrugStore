@@ -1,26 +1,32 @@
 package com.xiaoxiang.xxdrugstore.manage.service.impl;
 
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.dubbo.config.annotation.Service;
 
 
-import com.xiaoxiang.xxdrugstore.bean.PmsSkuAttrValue;
-import com.xiaoxiang.xxdrugstore.bean.PmsSkuImage;
-import com.xiaoxiang.xxdrugstore.bean.PmsSkuInfo;
-import com.xiaoxiang.xxdrugstore.bean.PmsSkuSaleAttrValue;
+import com.xiaoxiang.xxdrugstore.bean.*;
 import com.xiaoxiang.xxdrugstore.manage.mapper.PmsSkuAttrValueMapper;
 import com.xiaoxiang.xxdrugstore.manage.mapper.PmsSkuImageMapper;
 import com.xiaoxiang.xxdrugstore.manage.mapper.PmsSkuInfoMapper;
 import com.xiaoxiang.xxdrugstore.manage.mapper.PmsSkuSaleAttrValueMapper;
 import com.xiaoxiang.xxdrugstore.service.SkuService;
 import com.xiaoxiang.xxdrugstore.util.RedisUtil;
+import io.searchbox.client.JestClient;
+import io.searchbox.core.Delete;
+import io.searchbox.core.DeleteByQuery;
+import io.searchbox.core.Index;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.Jedis;
 import tk.mybatis.mapper.entity.Example;
+
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -42,6 +48,8 @@ public class SkuServiceImpl implements SkuService {
     @Autowired
     RedisUtil redisUtil;
 
+    @Autowired
+    JestClient jestClient;
 
     @Override
     public void saveSkuInfo(PmsSkuInfo pmsSkuInfo) {
@@ -71,9 +79,37 @@ public class SkuServiceImpl implements SkuService {
             pmsSkuImageMapper.insertSelective(pmsSkuImage);
         }
 
+
+        //存入elasticsearch
+        //查询mysql数据
+        List<PmsSkuInfo> pmsSkuInfoList = new ArrayList<>();
+        pmsSkuInfoList = getAllSku();
+        //转化为es的数据结构
+        List<PmsSearchSkuInfo> pmsSearchSkuInfos = new ArrayList<>();
+
+        for (PmsSkuInfo pmsSkuInfoES : pmsSkuInfoList) {
+            PmsSearchSkuInfo pmsSearchSkuInfo = new PmsSearchSkuInfo();
+
+            BeanUtils.copyProperties(pmsSkuInfoES, pmsSearchSkuInfo);
+
+            pmsSearchSkuInfos.add(pmsSearchSkuInfo);
+        }
+
+
+        //导入es
+        for (PmsSearchSkuInfo pmsSearchSkuInfo : pmsSearchSkuInfos) {
+            Index put = new Index.Builder(pmsSearchSkuInfo).index("xxdrugstore").type("PmsSkuInfo").id(pmsSearchSkuInfo.getId()).build();
+            try {jestClient.execute(put);}
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+
         // 发出商品的缓存同步消息
         // 发出商品的搜索引擎的同步消息
-
 
     }
 
@@ -111,8 +147,9 @@ public class SkuServiceImpl implements SkuService {
             System.out.println("ip为"+ip+"的买家:"+Thread.currentThread().getName()+"发现缓存中没有，申请缓存的分布式锁："+"sku:" + skuId + ":lock");
 
             // 设置分布式锁
-            String token = UUID.randomUUID().toString();
-            String OK = jedis.set("sku:" + skuId + ":lock", token, "nx", "px", 10*1000);// 拿到锁的线程有10秒的过期时间
+            String token = UUID.randomUUID().toString();//生成一个独一无二的token
+            //UUID.randomUUID().toString()是javaJDK提供的一个自动生成主键的方法。UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的，是由一个十六位的数字组成,表现出来的形式。
+            String OK = jedis.set("sku:" + skuId + ":lock", token, "nx", "px", 10*1000);// 拿到锁的线程有10秒的过期时间,将token作为值给分布式锁
             if(StringUtils.isNotBlank(OK)&&OK.equals("OK")){
                 // 设置成功，有权在10秒的过期时间内访问数据库
                 System.out.println("ip为"+ip+"的买家:"+Thread.currentThread().getName()+"有权在10秒的过期时间内访问数据库："+"sku:" + skuId + ":lock");
@@ -124,16 +161,17 @@ public class SkuServiceImpl implements SkuService {
                     jedis.set("sku:"+skuId+":info",JSON.toJSONString(pmsSkuInfo));
                 }else{
                     // 数据库中不存在该sku
-                    // 为了防止缓存穿透将，null或者空字符串值设置给redis
+                    // 为了防止缓存穿透将，null或者空字符串值设置给redis(如果不这样做，系统每次都会去mysql里查一个不存在的数据)
                     jedis.setex("sku:"+skuId+":info",60*3,JSON.toJSONString(""));
+                    //设置三分钟的过期时间
                 }
 
                 // 在访问mysql后，将mysql的分布锁释放
                 System.out.println("ip为"+ip+"的买家:"+Thread.currentThread().getName()+"使用完毕，将锁归还："+"sku:" + skuId + ":lock");
                 String lockToken = jedis.get("sku:" + skuId + ":lock");
-                if(StringUtils.isNotBlank(lockToken)&&lockToken.equals(token)){
-                    //jedis.eval("lua");可与用lua脚本，在查询到key的同时删除该key，防止高并发下的意外的发生
-                    jedis.del("sku:" + skuId + ":lock");// 用token确认删除的是自己的sku的锁
+                if(StringUtils.isNotBlank(lockToken)&&lockToken.equals(token)){// 用token确认删除的是自己的sku的锁
+                    //jedis.eval("lua");可与用lua脚本，在查询到key的同时删除该key，防止高并发下的get意外的发生
+                    jedis.del("sku:" + skuId + ":lock");
                 }
             }else{
                 // 设置失败，自旋（该线程在睡眠几秒后，重新尝试访问本方法）
@@ -155,7 +193,7 @@ public class SkuServiceImpl implements SkuService {
     }
 
     @Override
-    public List<PmsSkuInfo> getAllSku(String catalog3Id) {
+    public List<PmsSkuInfo> getAllSku() {
         List<PmsSkuInfo> pmsSkuInfos = pmsSkuInfoMapper.selectAll();
 
         for (PmsSkuInfo pmsSkuInfo : pmsSkuInfos) {

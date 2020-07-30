@@ -38,13 +38,40 @@ Thymeleaf/jsp/freemarker	springboot自带页面渲染工具(springboot有默认�
         <dependency>
             <groupId>xml-apis</groupId>
             <artifactId>xml-apis</artifactId>
-
         </dependency>
 
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-ext</artifactId>
 
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+
+<!-- 下面的依赖是用于解决java.lang.ClassNotFoundException: javax.xml.bind.DatatypeConverter的，具体看文章https://blog.csdn.net/qq_39818325/article/details/86679987-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
         </dependency>
 
     </dependencies>

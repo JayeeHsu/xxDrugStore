@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/xxdrugstore-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-api/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-common-util/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-web-util/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-service-util/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-user-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-manage-service/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-manage-web/pom.xml" />
+        <option value="$PROJECT_DIR$/fastdfs-client-java/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-item-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-redisson-test/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-search-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-search-service/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-cart-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-cart-service/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-passport-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-order-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/xxdrugstore-payment/pom.xml" />
+        <option value="$PROJECT_DIR$/xxware-manage/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

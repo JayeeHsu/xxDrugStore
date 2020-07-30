@@ -36,43 +36,44 @@ public class  UserController {
     @RequestMapping("addUser")
     @ResponseBody
 
-    public int addUser(String memberLevelId,
-                       String username,
-                       String password,
-                       String nickname,
-                       String phone,
-                       String status,
-                       Date createTime,
-                       String icon,
-                       int gender,
-                       Date birthday,
-                       String city,
-                       String job,
-                       String personalizedSignature,
-                       int sourceType,
-                       int integration,
-                       int growth,
-                       int luckeyCount,
-                       int historyIntegration) {
-        int result = userService.addUser(
-                memberLevelId,
-                username,
-                password,
-                nickname,
-                phone,
-                status,
-                createTime,
-                icon,
-                gender,
-                birthday,
-                city,
-                job,
-                personalizedSignature,
-                sourceType,
-                integration,
-                growth,
-                luckeyCount,
-                historyIntegration);
+public String addUser(UmsMember umsMember){
+//    String memberLevelId,
+//                       String username,
+//                       String password,
+//                       String nickname,
+//                       String phone,
+//                       String status,
+//                       Date createTime,
+//                       String icon,
+//                       String gender,
+//                       Date birthday,
+//                       String city,
+//                       String job,
+//                       String personalizedSignature,
+//                       String sourceType,
+//                       int integration,
+//                       int growth,
+//                       int luckeyCount,
+//                       int historyIntegration) {
+        String result = userService.addUser(umsMember);
+//                memberLevelId,
+//                username,
+//                password,
+//                nickname,
+//                phone,
+//                status,
+//                createTime,
+//                icon,
+//                gender,
+//                birthday,
+//                city,
+//                job,
+//                personalizedSignature,
+//                sourceType,
+//                integration,
+//                growth,
+//                luckeyCount,
+//                historyIntegration);
         return result;
     }
     //通过主键id删除用户
@@ -151,9 +152,9 @@ public UmsMember getUserByUserName(String userName){
     @RequestMapping("addReceiveAddressByMemberId")
     @ResponseBody
 
-    public int addUmsMemberReceiveAddress(String memberId, String name, String phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress) {
+    public String addUmsMemberReceiveAddress(UmsMemberReceiveAddress umsMemberReceiveAddress) {
 
-        int result = userService.addReceiveAddress(memberId, name, phoneNumber, defaultStatus, postCode, province, city, region, detailAddress);
+        String result = userService.addReceiveAddress(umsMemberReceiveAddress);
 
         return result;
     }
@@ -162,7 +163,7 @@ public UmsMember getUserByUserName(String userName){
     @RequestMapping("deleteReceiveAddress")
     @ResponseBody
 
-    public int deleteUmsMemberReceiveAddress(String memberId, String name, String phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress) {
+    public int deleteUmsMemberReceiveAddress(String memberId, String name, String phoneNumber, String defaultStatus, String postCode, String province, String city, String region, String detailAddress) {
 
         int result = userService.deleteReceiveAddress(memberId, name, phoneNumber, defaultStatus, postCode, province, city, region, detailAddress);
 
@@ -180,7 +181,7 @@ public UmsMember getUserByUserName(String userName){
 
     @RequestMapping("updateReceiveAddress")
     @ResponseBody
-    public int updateReceiveAddress(String Id, String memberId, String name, String phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress) {
+    public int updateReceiveAddress(String Id, String memberId, String name, String phoneNumber, String defaultStatus, String postCode, String province, String city, String region, String detailAddress) {
         int result = userService.updateReceiveAddress(Id, memberId, name, phoneNumber, defaultStatus, postCode, province, city, region, detailAddress);
         return result;
     }

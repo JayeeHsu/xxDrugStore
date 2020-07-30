@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/JD2.css"/>
+    <style type="text/css">
+        /* .tanchuang {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .5);
+            z-index: 9999;
+        } */
+        .flex-container {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+        }
+
+        .window {
+            width: 20%;
+            padding-bottom: 20px;
+            background-color: #fff;
+            z-index: 9999;
+            position: fixed;
+            display: none;
+            margin-bottom: 100px;
+            border: 1px solid #E0DFDF;
+        }
+
+        .add_btn {
+            height: 1400px;
+            cursor: pointer;
+        }
+
+        .btn_text {
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -40px;
+            margin-left: -20px;
+            background-color: #FDDB54;
+        }
+
+        .border_add_nav {
+            width: 100%;
+            border-bottom: 1px solid #E0DFDF;
+        }
+
+        .border_add_nav_box {
+            width: 90%;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .border_add_main_content {
+            width: 100%;
+            margin-left: 5%;
+            margin-bottom: 3%;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+
+        .border_add_btn_box {
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .add_title {
+            color: #20AAE4;
+        }
+
+        .name,
+        .border_add_main_content_box input {
+            margin-top: 10px;
+        }
+
+        .border_add_main_content_box input {
+            width: 160px;
+            height: 35px;
+            text-align: center;
+            outline: none;
+            appearance: none;
+            -moz-appearance: none;
+            border-radius: 4px;
+            border: 1px solid #c8cccf;
+            color: #000;
+        }
+
+        .cancel,
+        .save {
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            color: #fff;
+            text-align: center;
+            border-radius: 5%;
+            cursor: pointer;
+        }
+
+        .cancel {
+            margin-right: 10px;
+            background: #E0DFDF;
+        }
+
+        .save {
+            background: #20AAE4;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+<!--弹出框-->
+<div class="window" id="center">
+    <div class="border_add_nav">
+        <div></div>
+        <div class="flex-container">
+            <span class="add_title">新增收货地址</span>
+            <span class="close_btn">X</span>
+        </div>
+    </div>
+    <div class="border_add_main_content">
+        <div class="border_add_main_content_box">
+            <span class="name">收件人姓名：</span>
+            <input class="inputname" type="text">
+        </div>
+        <div class="border_add_main_content_box">
+            <span class="name">手机号：&nbsp&nbsp</span>
+            <input class="inputphone" type="text">
+        </div>
+        <br>
+        <div id="addressTitle"><span class="name"><h2>&nbsp&nbsp&nbsp&nbsp收货地址：</h2></span></div>
+        <div class="border_add_main_content_box">
+            <span class="name">省：</span>
+            <input class="province" type="text">
+        </div>
+        <div class="border_add_main_content_box">
+            <span class="name">市：</span>
+            <input class="city" type="text">
+        </div>
+        <div class="border_add_main_content_box">
+            <span class="name">区：</span>
+            <input class="region" type="text">
+        </div>
+        <div class="border_add_main_content_box">
+            <span class="name">详细地址：</span>
+            <input class="detailAddress" type="text">
+        </div>
+
+        <div class="border_add_main_content_box">
+            <span class="name">邮编：</span>
+            <input class=" postCode" type="text">
+        </div>
+    </div>
+    <div class="border_add_btn_box">
+        <div class="pull-right" style="float:right;">
+            <div class="cancel">取消</div>
+            <div class="save">保存</div>
+        </div>
+    </div>
+</div>
+<!--顶部-->
+<header>
+    <div class="header">
+        <ul class="header-left">
+            <li>
+                <img src="img/header_1.png"/>
+                <a href="">首页</a>
+            </li>
+            <li class="header-l-2">
+                <i class="fa fa-map-marker" style="color: #5C5452;"></i>
+                <a href="">北京</a>
+
+            </li>
+
+        </ul>
+        <ul class="header-right">
+            <li>|</li>
+            <li class="spacer"></li>
+            <li><a href="">我的订单</a></li>
+            <li class="spacer"></li>
+
+        </ul>
+        <div style="clear: both;"></div>
+    </div>
+
+
+</header>
+
+<!--logo图片-->
+<div class="top-1">
+    <img src="img/logo.png" class="img1"/><span>结算页</span>
+    <!--右侧绿色-->
+    <img src="img/08.png" class="img2"/>
+</div>
+
+<!--主体部分-->
+<p class="p1">填写并核对订单信息</p>
+<div class="section">
+    <!--收货人信息-->
+    <div class="top-2">
+        <span>收货人信息</span>
+        <span class="addgoodsaddress">新增收货地址</span>
+    </div>
+
+
+    <!--地址-->
+    <div class="top-3">
+        <ul>
+            <li class=".address default selected" th:each="userAddress:${userAddressList}">
+                <input name="deliveryAddress" type="radio" th:value="${userAddress.id}"
+                       th:checked="${userAddress.defaultStatus}=='1'" onclick="changeAddress()">
+                <span th:text="${userAddress.name}">收件人AAAA </span><span
+                    th:text="${userAddress.province}+${userAddress.city}+${userAddress.region}+${userAddress.detailAddress}">具体地址111 </span>
+            </li>
+        </ul>
+    </div>
+
+    </form>
+    <div class="hh1"/>
+</div>
+<!--********************************************************************************************-->
+
+
+<!--支付方式-->
+<h4 class="h4">支付方式</h4>
+
+<div class="top-6">
+    <p><span> 在线支付 </span></p>
+</div>
+<div class="hh1"></div>
+<!--送货清单-->
+<h4 class="h4" style="margin-top: 5px;">送货清单</h4>
+<div class="top_1">
+
+    <div class="to_right">
+        <h5>商家：自营</h5>
+        <!--图片-->
+        <div class="yun1" th:each="omsOrderItem:${omsOrderItems}">
+            <img th:src="${omsOrderItem.productPic}" class="yun"/>
+            <div class="mi">
+                <div><p style="width: 500px;" th:text="${omsOrderItem.productName}">商品名称111111111111 </p> <span
+                        style="float: right"> <span align="center" style="color: red">   </span> <span
+                        th:text="${omsOrderItem.productName}">   </span> <span>有货</span>
+                    <!-- <span  >无货</span> --> </span></div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="bto">
+    <div class="hh2"></div>
+    <h4 class="float">添加订单备注
+        <input id="orderCommentPage" type="text" maxlength="145" size="75" style="height: 22px"
+               placeholder="请将购买需求在备注中说明"/>
+    </h4>
+    <br/>
+    <div class="hh3"></div>
+
+</div>
+<div class="xia">
+
+
+    <div class="yfze">
+        <p class="yfze_a"><span class="z">应付总额：</span><span class="hq" th:text="'￥'+${totalAmount}"> ￥99999</span></p>
+
+
+        <button id="submitButton" class="tijiao">提交订单</button>
+    </div>
+</div>
+
+<form action="./submitOrder" method="post" id="orderForm">
+    <input name="receiveAddressId" id="receiveAddressId" value="1" type="hidden"/>
+    <input name="totalAmount" id="totalAmount" type="hidden" th:value="${totalAmount}"/>
+
+    <input name="tradeCode" type="hidden" th:value="${tradeCode}"/>
+</form>
+<script>
+    function changeAddress() {
+        var receiveAddressId = $("input[name='deliveryAddress']:checked").val();
+
+        $("#receiveAddressId").val(receiveAddressId);
+
+    }
+
+
+    $(function () {
+
+        $("#submitButton").click(function () {
+            $("#consignee").val($("input[type='radio']:checked").next().text());
+            $("#deliveryAddress").val($("input[type='radio']:checked").next().next().text());
+            $("#paymentWay").val("ONLINE");
+            $("#orderComment").val($("#orderCommentPage").val());
+            $("#orderForm").submit();
+
+        });
+        // 新增收货地址
+        $(".addgoodsaddress").mouseover(function () {
+            $(this).css("cursor", "pointer")
+        });
+        $(".close_btn").mouseover(function () {
+            $(this).css("cursor", "pointer")
+        });
+        $(".addgoodsaddress").click(function () {
+            $('.mask').css('display', 'block');
+            $('.mask').css('width', $(window).width())
+            $('.mask').css('height', $(document).height())
+            popCenterWindow();
+        });
+        //获取窗口的高度
+        var windowHeight;
+        //获取窗口的宽度
+        var windowWidth;
+        //获取弹窗的宽度
+        var popWidth;
+        //获取弹窗高度
+        var popHeight;
+
+        function init() {
+            windowHeight = $(window).height();
+            windowWidth = $(window).width();
+            popHeight = $(".window").height();
+            popWidth = $(".window").width();
+        }
+
+        //关闭窗口的方法
+        function closeWindow() {
+            $(".close_btn").click(function () {
+                $('.window').hide("slow");
+                $('.mask').css('display', 'none');
+            });
+            $(".cancel").click(function () {
+                $('.window').hide("slow");
+                $('.mask').css('display', 'none');
+            });
+        }
+
+        //定义弹出居中窗口的方法
+        function popCenterWindow() {
+            init();
+            //计算弹出窗口的左上角X的偏移量
+            var popX = (windowWidth - popWidth) / 2;
+            // 计算弹出窗口的左上角Y的偏移量为窗口的高度 - 弹窗高度 / 2 + 被卷去的页面的top
+            var popY = (windowHeight - popHeight) / 2 + $(document).scrollTop();
+            //设定窗口的位置
+            $("#center").css("top", popY).css("left", popX).slideToggle("fast");
+            closeWindow();
+        }
+/*  <div class="border_add_main_content_box">
+            <span class="province">省：</span>
+            <input class="inputadd" type="text">
+        </div>
+        <div class="border_add_main_content_box">
+            <span class="name">市：</span>
+            <input class="city" type="text">
+        </div>
+        <div class="border_add_main_content_box">
+            <span class="name">区：</span>
+            <input class="region" type="text">
+        </div>
+        <div class="border_add_main_content_box">
+            <span class="name">详细地址：</span>
+            <input class="detailAddress" type="text">
+        </div>*/
+
+        $(".save").click(function () {
+            var memberId=$("")
+            var name = $(".inputname").val();
+            var phone = $(".inputphone").val();
+            var province = $(".province").val();
+			var city = $(".city").val();
+			var region = $(".region").val();
+			var detailAddress = $(".detailAddress").val();
+			var postCode=$(".postCode").val();
+            // alert(username);
+             $.post("addAddress",{name:name,phone:phone,province:province,city:city,region:region,detailAddress:detailAddress,postCode:postCode},function (result) {
+             	if(result=="1"){
+             		$(".border_add_main_content_box input").val("")
+				 $('.window').hide("slow");
+				 $('.mask').css('display', 'none');
+             	}else {
+					alert("加入失败!")
+				}
+			 })
+
+        });
+
+        $('.header-right li:nth-of-type(6)').hover(function () {
+            $('.header-r-11').css('display', 'block')
+        }, function () {
+            $('.header-r-11').css('display', 'none')
+        })
+        $('.header-right li:nth-of-type(12)').hover(function () {
+            $('.header-r-2').css('display', 'block')
+        }, function () {
+            $('.header-r-2').css('display', 'none')
+        })
+        $('.header-right li:nth-of-type(14)').hover(function () {
+            $('.header-r-3').css('display', 'block')
+        }, function () {
+            $('.header-r-3').css('display', 'none')
+        })
+        $('.header-l-2').hover(function () {
+            $('.header-l-d').css('display', 'block')
+        }, function () {
+            $('.header-l-d').css('display', 'none')
+        })
+        $('.header-r-4').hover(function () {
+            $('.h-r-1').css('display', 'block')
+        }, function () {
+            $('.h-r-1').css('display', 'none')
+        })
+    })
+
+
+</script>
+</body>
+
+</html>

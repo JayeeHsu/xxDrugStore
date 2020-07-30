@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="xxdrugstore-search-web" />
+        <module name="xxdrugstore-web-util" />
+        <module name="xxware-manage" />
+        <module name="xxdrugstore-cart-web" />
+        <module name="xxdrugstore-service-util" />
+        <module name="xxdrugstore-search-service" />
+        <module name="xxdrugstore-common-util" />
+        <module name="xxdrugstore-manage-web" />
+        <module name="xxdrugstore-api" />
+        <module name="fastdfs-client-java" />
+        <module name="xxdrugstore-payment" />
+        <module name="xxdrugstore-passport-web" />
+        <module name="xxdrugstore-user-web" />
+        <module name="xxdrugstore-manage-service" />
+        <module name="xxdrugstore-order-web" />
+        <module name="xxdrugstore-item-web" />
+        <module name="xxdrugstore-redisson-test" />
+        <module name="xxdrugstore-cart-service" />
+        <module name="xxdrugstore-user-service" />
+        <module name="xxdrugstore-order-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="fastdfs-client-java" target="1.6" />
+      <module name="xxdrugstore-api" target="1.8" />
+      <module name="xxdrugstore-cart-service" target="1.8" />
+      <module name="xxdrugstore-cart-web" target="1.8" />
+      <module name="xxdrugstore-common-util" target="1.8" />
+      <module name="xxdrugstore-item-web" target="1.8" />
+      <module name="xxdrugstore-manage-service" target="1.8" />
+      <module name="xxdrugstore-manage-web" target="1.8" />
+      <module name="xxdrugstore-order-service" target="1.8" />
+      <module name="xxdrugstore-order-web" target="1.8" />
+      <module name="xxdrugstore-parent" target="1.8" />
+      <module name="xxdrugstore-passport-web" target="1.8" />
+      <module name="xxdrugstore-payment" target="1.8" />
+      <module name="xxdrugstore-redisson-test" target="1.8" />
+      <module name="xxdrugstore-search-service" target="1.8" />
+      <module name="xxdrugstore-search-web" target="1.8" />
+      <module name="xxdrugstore-service-util" target="1.8" />
+      <module name="xxdrugstore-user" target="1.8" />
+      <module name="xxdrugstore-user-service" target="1.8" />
+      <module name="xxdrugstore-user-web" target="1.8" />
+      <module name="xxdrugstore-web-util" target="1.8" />
+      <module name="xxware-manage" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+      <module name="xxdrugstore-cart-service" options="" />
+      <module name="xxdrugstore-cart-web" options="" />
+      <module name="xxdrugstore-common-util" options="" />
+      <module name="xxdrugstore-item-web" options="" />
+      <module name="xxdrugstore-manage-service" options="" />
+      <module name="xxdrugstore-manage-web" options="" />
+      <module name="xxdrugstore-order-service" options="" />
+      <module name="xxdrugstore-order-web" options="" />
+      <module name="xxdrugstore-passport-web" options="" />
+      <module name="xxdrugstore-payment" options="" />
+      <module name="xxdrugstore-redisson-test" options="" />
+      <module name="xxdrugstore-search-service" options="" />
+      <module name="xxdrugstore-search-web" options="" />
+      <module name="xxdrugstore-service-util" options="" />
+      <module name="xxdrugstore-user" options="" />
+      <module name="xxdrugstore-user-service" options="" />
+      <module name="xxdrugstore-user-web" options="" />
+      <module name="xxdrugstore-web-util" options="" />
+    </option>
+  </component>
+</project>

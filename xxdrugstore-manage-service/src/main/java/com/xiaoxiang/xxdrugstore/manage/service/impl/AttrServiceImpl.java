@@ -109,7 +109,7 @@ public class AttrServiceImpl implements AttrService {
     @Override
     public List<PmsBaseAttrInfo> getAttrValueListByValueId(Set<String> valueIdSet) {
 
-        String valueIdStr = StringUtils.join(valueIdSet, ",");//41,45,46
+        String valueIdStr = StringUtils.join(valueIdSet, ",");//把set中的"1" "2" "3"变成"1，2，3"
         List<PmsBaseAttrInfo> pmsBaseAttrInfos = pmsBaseAttrInfoMapper.selectAttrValueListByValueId(valueIdStr);
         return pmsBaseAttrInfos;
     }

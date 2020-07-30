@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/fastdfs-client-java/fastdfs-client-java.iml" filepath="$PROJECT_DIR$/fastdfs-client-java/fastdfs-client-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/xxDrugStore.iml" filepath="$PROJECT_DIR$/.idea/xxDrugStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-api/xxdrugstore-api.iml" filepath="$PROJECT_DIR$/xxdrugstore-api/xxdrugstore-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-cart-service/xxdrugstore-cart-service.iml" filepath="$PROJECT_DIR$/xxdrugstore-cart-service/xxdrugstore-cart-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-cart-web/xxdrugstore-cart-web.iml" filepath="$PROJECT_DIR$/xxdrugstore-cart-web/xxdrugstore-cart-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-common-util/xxdrugstore-common-util.iml" filepath="$PROJECT_DIR$/xxdrugstore-common-util/xxdrugstore-common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-item-web/xxdrugstore-item-web.iml" filepath="$PROJECT_DIR$/xxdrugstore-item-web/xxdrugstore-item-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-manage-service/xxdrugstore-manage-service.iml" filepath="$PROJECT_DIR$/xxdrugstore-manage-service/xxdrugstore-manage-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-manage-web/xxdrugstore-manage-web.iml" filepath="$PROJECT_DIR$/xxdrugstore-manage-web/xxdrugstore-manage-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-order-service/xxdrugstore-order-service.iml" filepath="$PROJECT_DIR$/xxdrugstore-order-service/xxdrugstore-order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-order-web/xxdrugstore-order-web.iml" filepath="$PROJECT_DIR$/xxdrugstore-order-web/xxdrugstore-order-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-parent/xxdrugstore-parent.iml" filepath="$PROJECT_DIR$/xxdrugstore-parent/xxdrugstore-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-passport-web/xxdrugstore-passport-web.iml" filepath="$PROJECT_DIR$/xxdrugstore-passport-web/xxdrugstore-passport-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-payment/xxdrugstore-payment.iml" filepath="$PROJECT_DIR$/xxdrugstore-payment/xxdrugstore-payment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-redisson-test/xxdrugstore-redisson-test.iml" filepath="$PROJECT_DIR$/xxdrugstore-redisson-test/xxdrugstore-redisson-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-search-service/xxdrugstore-search-service.iml" filepath="$PROJECT_DIR$/xxdrugstore-search-service/xxdrugstore-search-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-search-web/xxdrugstore-search-web.iml" filepath="$PROJECT_DIR$/xxdrugstore-search-web/xxdrugstore-search-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-service-util/xxdrugstore-service-util.iml" filepath="$PROJECT_DIR$/xxdrugstore-service-util/xxdrugstore-service-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-user-service/xxdrugstore-user-service.iml" filepath="$PROJECT_DIR$/xxdrugstore-user-service/xxdrugstore-user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-user-web/xxdrugstore-user-web.iml" filepath="$PROJECT_DIR$/xxdrugstore-user-web/xxdrugstore-user-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxdrugstore-web-util/xxdrugstore-web-util.iml" filepath="$PROJECT_DIR$/xxdrugstore-web-util/xxdrugstore-web-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxware-manage/xxware-manage.iml" filepath="$PROJECT_DIR$/xxware-manage/xxware-manage.iml" />
+    </modules>
+  </component>
+</project>
